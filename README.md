@@ -1,19 +1,16 @@
 # Prueba WebDriver-Selenium
 
-Un ejemplo de como utilzar una libreria de Selenium y WebDriver
+Un ejemplo de como automatizar pruebas de un sitio con selenium-webdriver y node js
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
+Las pruebas se realizan para 2 buscadores ( Chrome y edge)
+Para el sitio https://www.dexter.com.ar/
 
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
-
-Node
-Dotenv
+Buscar y bajar del sitio oficial los ejecutable para los diferentes Navegadores
 
 DRIVER de Crome
 https://chromedriver.chromium.org/downloads
@@ -21,28 +18,19 @@ https://chromedriver.chromium.org/downloads
 DRIVER de EDGE de Microsof
 https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
 
-```
-Da un ejemplo
-```
+Descomprimir y dejar el ejecutable en el disco C.Luego generar una variable de entorno del sitema
 
 ### Instalación 🔧
+Ejebutar comando para instalar las dependencias del package.json
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+NPM INSTALL
 
-_Dí cómo será ese paso_
+https://www.npmjs.com/package/selenium-webdriver
 
-```
-Da un ejemplo
-```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
 
 ## Ejecutando las pruebas ⚙️
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+Para ejecutar Chrome
+NODE chrome.js
+Para ejecutar con Edge de Microsoft
+NODE edge.js
