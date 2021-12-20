@@ -1,9 +1,6 @@
-//const {By,Key,Builder} = require("selenium-webdriver");
-//require("chromedriver");
-
 const {By,Key,Builder} = require("selenium-webdriver");
-const edge = require('selenium-webdriver/edge');
-let service = new edge.ServiceBuilder("/chromedriver/msedgedriver.exe");
+require("chromedriver");
+
 require('dotenv').config();
 
  
@@ -11,15 +8,9 @@ async function dexter(){
 
        // Buscar un Producto
        var searchString = "NI_CU4826-002";
- 
-       //To wait for browser to build and launch properly
-      
-       //let driver = await new Builder().forBrowser("MicrosoftEdge").build();
-       let driver = await new Builder()
-                .setEdgeService(service)
-                .forBrowser('MicrosoftEdge')
-                .build();
-         
+           
+       let driver = await new Builder().forBrowser("chrome").build();
+               
         await driver.get("https://www.dexter.com.ar");
         
 
@@ -29,9 +20,6 @@ async function dexter(){
         //Verify the page title and print it
         var title = await driver.getTitle();
         console.log('Title is:',title);
-
-       // var buscar= await driver.findElement(By.xpath("//*[@id='product-search-results']/div[2]/div[2]/div[2]/div[1]/div/div/div[1]/a[1]")).getText();
-        //console.log("buscando"+ buscar);
 
         //Elegir Talle 41
         console.log("Elege el producto en la grilla")
@@ -49,17 +37,14 @@ async function dexter(){
       
        //Ir al carrito
        console.log("Ir al carrito")
-       await driver.sleep(3000);
-       await driver.findElement(By.xpath("/html/body/div[1]/header/nav/div[1]/div/div/div[2]/div[1]/div[1]/div[3]/div[1]/a")).click();
-   
-              
-       //Ir al carrito
+       await driver.sleep(4000);
+       await driver.findElement(By.xpath("/html/body/div[1]/header/nav/div[1]/div/div[3]/div/div/div[1]/div[3]/div[1]/a/i")).click();
+       //Boton comprar del carrito
        console.log("Boton comprar del carrito")
        await driver.findElement(By.xpath("//*[@id='maincontent']/div[3]/div[1]/div[2]/div[9]/div/div/a")).click();
-       
-        //Ingresar Mail
+    
+       //Ingresar Mail
         console.log("Ingresa mail")
-       
        var login = process.env.LOGIN;
        await driver.findElement(By.name("loginEmail")).sendKeys(login,Key.RETURN);
 
@@ -80,8 +65,7 @@ async function dexter(){
         await driver.findElement(By.xpath("//*[@id='null']/fieldset[4]/div[2]/div[3]/label")).click();
 
         await driver.sleep(3000);
-        //await driver.findElement(By.xpath("//*[@id='checkout-main']/div[3]/div[1]/div[8]/div/div/button[2]")).click();
-        //await driver.sleep(3000);
+        
         //Ingresa CVC Tarjeta 
         console.log("Ingresa CVC Tarjeta");
         var CVC = "123";

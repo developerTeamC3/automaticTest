@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chromedriver": "^94.0.0",
+    "chromedriver": "^96.0.0",
     "dotenv": "^10.0.0",
     "selenium-webdriver": "^4.0.0-rc-2"
   }
