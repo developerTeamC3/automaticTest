@@ -7,14 +7,15 @@ require('dotenv').config();
 async function dexter(){
 
        // Buscar un Producto
-       var searchString = "NI_CU4826-002";
+       var searchString = "NI_CW3411-402";
            
        let driver = await new Builder()
                 .setEdgeService(service)
                 .forBrowser('MicrosoftEdge')
                 .build();
          
-        await driver.get("https://www.dexter.com.ar");
+        //await driver.get(process.env.URL_PROD);
+        await driver.get(process.env.URL_DEV_DEXTER);
         
 
         //To send a search query by passing the value in searchString.
@@ -40,24 +41,22 @@ async function dexter(){
       
        //Ir al carrito
        console.log("Ir al carrito")
-       await driver.sleep(3000);
-       await driver.findElement(By.xpath("/html/body/div[1]/header/nav/div[1]/div/div/div[2]/div[1]/div[1]/div[3]/div[1]/a")).click();
-   
-              
-       //Ir al carrito
+       await driver.sleep(4000);
+       await driver.findElement(By.xpath("/html/body/div[1]/header/nav/div[1]/div/div[3]/div/div/div[1]/div[3]/div[1]/a/i")).click();
+                 
+       //Boton comprar del carrito
        console.log("Boton comprar del carrito")
        await driver.findElement(By.xpath("//*[@id='maincontent']/div[3]/div[1]/div[2]/div[9]/div/div/a")).click();
-       //*[@id="mainContainer"]/header/nav/div[1]/div/div[3]/div/div/div[1]/div[3]/div[1]/a
-       
+             
         //Ingresar Mail
         console.log("Ingresa mail")
        
-       var login = process.env.LOGIN;
+       var login = process.env.LOGIN_DEV;
        await driver.findElement(By.name("loginEmail")).sendKeys(login,Key.RETURN);
 
         //Ingresa PAssword 
         console.log("Ingresa password");
-       var passw = process.env.PASSWORD;
+       var passw = process.env.PASSWORD_DEV;
        await driver.findElement(By.name("loginPassword")).sendKeys(passw,Key.RETURN);
        
        await driver.sleep(5000);

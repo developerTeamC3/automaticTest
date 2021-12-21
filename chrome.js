@@ -6,13 +6,13 @@ require('dotenv').config();
  
 async function dexter(){
 
-       // Buscar un Producto
-       var searchString = "NI_CU4826-002";
+       // Buscar un Producto2
+       var searchString = "NI_CW3411-402";
            
        let driver = await new Builder().forBrowser("chrome").build();
                
-        await driver.get("https://www.dexter.com.ar");
-        
+       //await driver.get(process.env.URL_PROD);
+       await driver.get(process.env.URL_DEV_DEXTER);        
 
         //To send a search query by passing the value in searchString.
         await driver.findElement(By.name("q")).sendKeys(searchString,Key.RETURN);
@@ -22,7 +22,7 @@ async function dexter(){
         console.log('Title is:',title);
 
         //Elegir Talle 41
-        console.log("Elege el producto en la grilla")
+        console.log("Elige el producto en la grilla")
         await driver.findElement(By.xpath("//*[@id='product-search-results']/div[2]/div[2]/div[2]/div[1]/div/div/div[1]/a[1]")).click();
         
         await driver.sleep(2000);
@@ -45,12 +45,12 @@ async function dexter(){
     
        //Ingresar Mail
         console.log("Ingresa mail")
-       var login = process.env.LOGIN;
+       var login = process.env.LOGIN_DEV;
        await driver.findElement(By.name("loginEmail")).sendKeys(login,Key.RETURN);
 
         //Ingresa PAssword 
         console.log("Ingresa password");
-       var passw = process.env.PASSWORD;
+       var passw = process.env.PASSWORD_DEV;
        await driver.findElement(By.name("loginPassword")).sendKeys(passw,Key.RETURN);
        
        await driver.sleep(5000);
