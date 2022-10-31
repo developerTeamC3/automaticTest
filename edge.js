@@ -1,13 +1,13 @@
 const {By,Key,Builder} = require("selenium-webdriver");
 const edge = require('selenium-webdriver/edge');
-let service = new edge.ServiceBuilder("/chromedriver/msedgedriver.exe");
+let service = new edge.ServiceBuilder("/Driver/msedgedriver.exe");
 require('dotenv').config();
 
  
-async function dexter(){
+async function EPH(){
 
        // Buscar un Producto
-       var searchString = "NI_CW3411-402";
+       var searchString = "40472055";
            
        let driver = await new Builder()
                 .setEdgeService(service)
@@ -15,7 +15,7 @@ async function dexter(){
                 .build();
          
         //await driver.get(process.env.URL_PROD);
-        await driver.get(process.env.URL_DEV_DEXTER);
+        await driver.get(process.env.URL_DEV);
         
 
         //To send a search query by passing the value in searchString.
@@ -26,18 +26,18 @@ async function dexter(){
         console.log('Title is:',title);
 
         //Elegir Talle 41
-        console.log("Elege el producto en la grilla")
-        await driver.findElement(By.xpath("//*[@id='product-search-results']/div[2]/div[2]/div[2]/div[1]/div/div/div[1]/a[1]")).click();
+        //console.log("Elege el producto en la grilla")
+        //await driver.findElement(By.xpath("//*[@id='maincontent']/section/section/div[6]/div/div[1]")).click();
         
-        await driver.sleep(2000);
+        //await driver.sleep(2000);
        //Boton comprar PDP
-       console.log("Elige el talle 41")
-        await driver.findElement(By.xpath("//*[@id='size-1']/div[1]/li[6]")).click();
+       console.log("Elige Producto")
+        await driver.findElement(By.xpath("//*[@id='maincontent']/section/section/div[6]/div/div[1]/div[1]/a/div/div[2]/div/picture[2]/img")).click();
         
        //Boton agregar al carrito
        await driver.sleep(3000);
        console.log("Boton agregar al carrito")
-       await driver.findElement(By.xpath("//*[@id='maincontent']/div/div[2]/div[3]/div[5]/div[8]/div/div/div/div/div[1]/button")).click();
+       await driver.findElement(By.xpath("//*[@id='maincontent']/div[3]/div[2]/div[3]/div[6]/div[2]/button")).click();
       
        //Ir al carrito
        console.log("Ir al carrito")
@@ -97,4 +97,4 @@ async function dexter(){
  
 }
  
-dexter()
+EPH()
