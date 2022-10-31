@@ -5,7 +5,7 @@ Un ejemplo de como automatizar pruebas de un sitio con selenium-webdriver y node
 ## Comenzando 🚀
 
 Las pruebas se realizan para 2 buscadores ( Chrome y edge)
-Para el sitio https://www.dexter.com.ar/
+Para el sitio https://www.elpalaciodehierro.com
 
 
 ### Pre-requisitos 📋
