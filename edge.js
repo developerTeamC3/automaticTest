@@ -1,5 +1,5 @@
 const {By,Key,Builder} = require("selenium-webdriver");
-const edge = require('selenium-webdriver/edge');
+const edge = require("selenium-webdriver/edge");
 let service = new edge.ServiceBuilder("/Driver/msedgedriver.exe");
 require('dotenv').config();
 
@@ -35,7 +35,7 @@ async function EPH(){
         await driver.findElement(By.xpath("//*[@id='maincontent']/section/section/div[6]/div/div[1]/div[1]/a/div/div[2]/div/picture[2]/img")).click();
         
        //Boton agregar al carrito
-       await driver.sleep(3000);
+       await driver.sleep(2000);
        console.log("Boton agregar al carrito")
        await driver.findElement(By.xpath("//*[@id='maincontent']/div[3]/div[2]/div[3]/div[6]/div[2]/button")).click();
       
@@ -89,7 +89,7 @@ async function EPH(){
         await driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[3]/div[1]/div[8]/div/div/div/button")).click();
 
         await driver.sleep(2000);
-        var NumeroOrden = await driver.findElement(By.className("summary-details order-number")).getText();
+        var NumeroOrden = await driver.findElement(By.className("b-confirmation_order")).getText();
         console.log('NumeroOrden:',NumeroOrden);
  
         //It is always a safe practice to quit the browser after execution
